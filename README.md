@@ -15,6 +15,6 @@ Things you may want to cover:
 * Step 5: Then on home page i have displayed both shared and share with locations of user
         so you can now see both the locations on maps
 
-* Step 6: then from /username you can see all the public shared location of users
+* Step 6: then from /username you can see all the public shared location of users on map
 * Step 7: You can also see the location in table format from navbar menus shared location and sharedwithcurrentuser
 * Step 8: you can also see the all currently logged in user by clicking Loggedinuser from navbar                 
