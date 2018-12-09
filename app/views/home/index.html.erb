@@ -1,0 +1,14 @@
+<div style='width: 800px;'>
+  <div id="one_marker" style='width: 800px; height: 400px;'></div>
+</div>
+<script>
+  $(document).ready(function(){
+  handler = Gmaps.build('Google');
+  handler.buildMap({ internal: {id: 'one_marker'}}, function(){
+     markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+  
+  })
+</script>

@@ -1,0 +1,16 @@
+<div style='width: 800px;'>
+  <% unless @user.nil?%>
+    <div id="public_share" style='width: 800px; height: 400px;'></div>
+  <%end%>
+</div>
+<script>
+  $(document).ready(function(){
+  handler = Gmaps.build('Google');
+  handler.buildMap({ internal: {id: 'public_share'}}, function(){
+     markers = handler.addMarkers(<%=raw @hash.to_json %>);
+     handler.bounds.extendWith(markers);
+     handler.fitMapToBounds();
+  });
+  
+  })
+</script>	

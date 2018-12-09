@@ -1,0 +1,33 @@
+<div class="page-header">
+  <h1>Location <%= @location.address.titleize%></h1>
+</div>
+<%= form_with url: post_share_location_location_path do |f| %>
+  <div class="form-group">
+    <%= f.label "Sharing Type", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.select :type, ['Private', 'Public'], selected: 'Public', class: "form-control", id: 'type' %>
+    </div>
+  </div>
+  <div class="form-group hide", id = "user_div">
+    <%= f.label "Shared With", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.select("shared_with", users,{ :prompt => "Please select"},{ :multiple => true, :size => User.count + 2 ,class: "form-control"})%>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+<script type="text/javascript">
+  jQuery(function() {
+    jQuery('#type').change(function(){
+      if (this.value == 'Private'){
+        jQuery('#user_div').removeClass('hide')
+      }else{
+        jQuery('#user_div').addClass('hide')
+      }
+    });
+  });
+</script>
